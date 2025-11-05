@@ -1,0 +1,344 @@
+/* Pretendard 폰트 및 기본 설정 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f7f3e8; /* 기본 배경색 (아이보리) */
+    color: #333;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+.inner-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section-title { font-size: 1.5em; font-weight: 700; margin-bottom: 30px; text-align: center; }
+
+/* -------------------- Header & Navigation Styles -------------------- */
+.header {
+    width: 100%;
+    position: relative; /* 서브 페이지는 고정 헤더 대신 일반적인 플로우를 따를 수 있습니다. */
+    background-color: #f7f3e8;
+}
+
+.top-bar {
+    background-color: #ffc107; /* 상단 노란색 바 */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #333;
+}
+
+.inner-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img { height: 40px; }
+
+.main-menu {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    display: block;
+    padding: 10px 0;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.menu-item:hover > a {
+    color: #f8c105; /* 마우스 오버 시 색상 */
+}
+
+/* 서브 메뉴 전체 영역 (초기 숨김) */
+.sub-menu-wrap {
+    position: absolute;
+    width: 100%; /* 서브메뉴 전체를 감싸는 영역의 너비 설정 필요 */
+    /* 현재 nav 구조에서는 .main-nav 전체에 걸치도록 CSS 조정이 필요함 */
+    /* 간단하게는 모든 서브 메뉴가 보이도록 하기 위해 position: static으로 변경할 수도 있음 */
+    position: absolute;
+    top: 100%; /* 메인 메뉴 아래에 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    background-color: #fff;
+    border-top: 3px solid #f8c105;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 20vw; /* 전체 너비로 설정 (필요에 따라 조정) */
+    left: 0;
+    transform: translateX(0);
+}
+
+/* 네비게이션 서브메뉴 스타일링 (main_style.css와 유사하게 작성) */
+/* 이 부분은 메인 페이지의 .main-nav 구조를 복사하여 사용하거나, 단순화할 수 있습니다. */
+/* .main-nav { display: none; 서브페이지 이미지에서는 메뉴가 보이지 않음 } */
+
+.util-nav button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 15px;
+    color: #333;
+}
+
+
+/* -------------------- Sub Visual Swiper Section -------------------- */
+.sub-visual-section {
+    background-color: #f7f3e8;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden; /* 스와이퍼 영역 밖으로 나가는 요소 처리 */
+}
+
+.subSwiper {
+    width: 100%;
+    height: 350px; /* 슬라이더 높이 */
+    padding: 0 50px; /* 양쪽 슬라이드 미리보기 간격 */
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    /* 첨부 이미지처럼 3D 효과를 주려면 Swiper CSS에 추가 설정 필요 */
+    /* 예: effect: 'coverflow' */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.visual-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #ffc107;
+}
+
+/* -------------------- Cart UI Section -------------------- */
+.cart-ui-section {
+    padding: 80px 0;
+    background-color: #f7f3e8;
+}
+
+.cart-ui-section .inner-content {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.cart-icons i { margin-left: 15px; font-size: 20px; }
+
+.cart-table-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.item-name { width: 30%; font-weight: 500; }
+.quantity {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qty-control {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.qty-control i { margin-left: 5px; font-size: 0.9em; cursor: pointer; }
+.price { width: 30%; text-align: right; font-weight: bold; }
+
+.cart-total-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.total-detail {
+    background-color: #388e3c; /* 녹색 */
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 5px 0 0 5px;
+}
+
+.total-detail .label { font-size: 1.1em; font-weight: 500; }
+.total-detail .value { font-size: 1.8em; font-weight: 700; }
+
+.checkout-btn {
+    background-color: #ff9800; /* 오렌지색 */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+/* -------------------- Flexible Layout Section -------------------- */
+.flexible-layout-section {
+    padding: 80px 0;
+    background-color: #ff9800; /* 오렌지 배경 */
+    color: white;
+    text-align: center;
+}
+
+.flexible-layout-section .section-title { color: white; margin-bottom: 10px; }
+.flexible-layout-section .description { margin-bottom: 50px; }
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.grid-item {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 첨부 이미지의 레이아웃 비율 맞추기 */
+.item-3 { grid-column: 3 / 5; grid-row: 1 / 2; } /* 3, 4번째 칸 */
+.item-4 { grid-column: 1 / 3; grid-row: 2 / 3; } /* 1, 2번째 칸 */
+.item-5 { grid-column: 3 / 4; grid-row: 2 / 3; }
+.item-6 { grid-column: 4 / 5; grid-row: 2 / 3; }
+
+/* -------------------- Food Section -------------------- */
+.food-section {
+    background-color: #f7f3e8;
+    padding: 0px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-section .inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.food-text {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+.food-text h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #388e3c;
+}
+
+.food-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.95);
+}
+
+.say-yes-text {
+    position: absolute;
+    bottom: 300px;
+    font-size: 4em;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 10;
+    transform: rotate(-15deg); /* 기울임 효과 */
+}
+
+/* -------------------- Color Palette Section -------------------- */
+.color-palette-section {
+    padding: 50px 0;
+    background-color: #515151;
+}
+
+.color-palette-section .inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-item {
+    width: 300px; /* 너비 조절 */
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+/* 첨부 이미지의 색상 팔레트와 유사하게 설정 */
+.color-1 { background-color: #9ccc65; }
+.color-2 { background-color: #ffc107; }
+.color-3 { background-color: #ff9800; }
+.color-4 { background-color: #ef5350; }
+.color-5 { background-color: #388e3c; }
+.color-6 { background-color: #c62828; }

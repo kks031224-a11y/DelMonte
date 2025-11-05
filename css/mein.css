@@ -1,0 +1,300 @@
+/* Pretendard 폰트 설정 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 첨부 이미지의 배경 색상 등을 고려하여 설정 */
+    background-color: #f3a901; /* 예시 배경색 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* -------------------- Header & Navigation Styles -------------------- */
+.header {
+    width: 100%;
+    position: fixed; /* 고정 헤더 */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #f6edda; /* 배경색 설정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.inner-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box1 {
+    margin: 0 auto;
+    background-color: #f4c965; height: 2px;
+    max-width: 1200px;
+}
+
+.logo img {
+    height: 60px; /* 로고 크기 조정 */
+}
+
+/* 주 메뉴 */
+.main-menu {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    display: block;
+    padding: 10px 0;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.menu-item:hover > a {
+    color: #f8c105; /* 마우스 오버 시 색상 */
+}
+
+
+
+/* 서브 메뉴 전체 영역 (초기 숨김) */
+.sub-menu-wrap {
+    position: absolute;
+    width: 100%; /* 서브메뉴 전체를 감싸는 영역의 너비 설정 필요 */
+    /* 현재 nav 구조에서는 .main-nav 전체에 걸치도록 CSS 조정이 필요함 */
+    /* 간단하게는 모든 서브 메뉴가 보이도록 하기 위해 position: static으로 변경할 수도 있음 */
+    position: absolute;
+    top: 100%; /* 메인 메뉴 아래에 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    background-color: #fff;
+    border-top: 3px solid #f8c105;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 20vw; /* 전체 너비로 설정 (필요에 따라 조정) */
+    left: 0;
+    transform: translateX(0);
+}
+
+/* hover 시 서브메뉴 보이기 */
+.menu-item:hover .sub-menu-wrap {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu {
+    display: flex;
+    /* 서브 메뉴를 메인 메뉴 수에 맞게 분할하여 배치 */
+    /* 이 부분은 JavaScript를 사용하여 .main-nav 너비에 맞게 중앙 배치하는 것이 더 정확합니다. */
+    /* 단순 CSS로는 각 .sub-menu의 위치를 잡기가 까다롭습니다. */
+    /* 예시로 flex-direction: column을 적용합니다. */
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px; /* 메뉴 간격 조정 */
+}
+
+.sub-menu a {
+    font-weight: 400;
+    color: #666;
+}
+
+.sub-menu a:hover {
+    color: #f8c105;
+}
+
+.util-nav button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 15px;
+    color: #333;
+}
+
+
+/* -------------------- Swiper Section Styles -------------------- */
+.swiper-pagination-bullet-active {
+    background-color: #f8c105;
+}
+
+.visual-section {
+    padding-top: 60px; /* 고정 헤더 높이만큼 띄우기 */
+}
+
+.swiper {
+    width: 100%;
+    height: 700px; /* 슬라이더 높이 설정 */
+}
+
+.swiper-slide {
+    position: relative;
+    background-color: #f6edda; /* 첨부 이미지의 메인 색상 */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.swiper-slide img {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    height: 90%; /* 이미지 크기 조정 */
+    object-fit: cover;
+    padding-right: 70%;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 10;
+    width: 50%;
+    color: #f3a901;
+}
+
+.slide-content h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.explore-btn {
+    padding: 10px 30px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Swiper Navigation & Pagination Custom Styles (필요시) */
+.swiper-button-next, .swiper-button-prev {
+    color: #f3a901!important;
+}
+
+/* -------------------- Items Section Styles -------------------- */
+
+.items-section {
+    padding: 80px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 80px;
+    color: #fff;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.trending-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.trending-item {
+    text-align: center;
+    color: #fff;
+}
+
+.trending-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.trending-item h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.trending-item .price {
+    font-weight: bold;
+    color: #008241;
+}
+
+/* -------------------- Recipe Section Styles -------------------- */
+.recipe-section {
+    background-color: #f7f3e8; /* 첨부 이미지의 하단 녹색 영역 */
+    color: white;
+    background-image: url('/메인\ 코딩/'); /* 배경 이미지 (첨부 이미지 하단) */
+    background-size: cover;
+    background-position: center;
+    min-height: 500px; /* 높이 설정 */
+}
+    .inner-content img {
+        width: 100%;
+    }
+
+/* -------------------- Footer Styles -------------------- */
+.footer {
+    background-color: #f7f3e8; /* 첨부 이미지 하단 아이보리 색상 */
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    margin-bottom: 20px;
+}
+
+.sns-links a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+
+/* ScrollReveal 초기 상태 (JS에서 자동으로 처리되지만, 명시적으로 작성할 수도 있음) */
+/* .reveal-item {
+    opacity: 0;
+    transform: translateY(50px);
+} */
